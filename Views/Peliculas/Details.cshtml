@@ -1,0 +1,32 @@
+﻿@model TpPeliculas.Models.Pelicula
+
+@{
+    ViewData["Title"] = "Details";
+}
+<link href="~/css/details.css" rel="stylesheet" />
+<div class="pelicula-details">
+    <div class="pelicula-header">
+        <h2>@Model.Titulo</h2>
+    </div>
+
+    <div class="pelicula-info">
+        <div class="pelicula-poster">
+            <img src="~/imagenes/fotos/@Model.Portada" alt="@Model.Titulo" />
+        </div>
+        <div class="pelicula-detalles">
+            <p><strong>Estreno:</strong> @Model.FechaEstreno.ToString("dd/MM/yyyy")</p>
+            <p><strong>Género:</strong> @Model.Genero!.Descripcion</p>
+            <p><strong>Link Trailer:</strong> <a href="@Model.Trailer">@Model.Trailer</a></p>
+        </div>
+    </div>
+
+    <div class="pelicula-resumen">
+        <h4>Resumen</h4>
+        <p>@Model.Resumen</p>
+    </div>
+
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

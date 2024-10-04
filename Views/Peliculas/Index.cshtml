@@ -1,0 +1,25 @@
+﻿@model IEnumerable<TpPeliculas.Models.Pelicula>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link href="~/css/style.css" rel="stylesheet" />
+
+<p>
+    <a asp-action="Create" class="btn-create">Cargar Nueva Película</a>
+</p>
+
+<div class="movie-container">
+    @foreach (var item in Model)
+    {
+        <div class="movie-card">
+            <a asp-action="Details" asp-route-id="@item.Id"><img src="~/imagenes/Fotos/@item.Portada" class="movie-poster" /></a>
+            <h3 class="movie-title">@Html.DisplayFor(modelItem => item.Titulo)</h3>
+
+            <div class="action-buttons">
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn-edit">Editar</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn-delete">Borrar</a>
+            </div>
+        </div>
+    }
+</div>
